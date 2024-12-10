@@ -1,0 +1,150 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .home {
+            width: 100%;
+            height: 100vh;
+        }
+
+        .headline {
+            background-color: #fafafa;
+            padding: 15px 20px;
+            border-bottom: 1px solid #e7e7e7;
+        }
+
+        .homecont {
+            background-color: #ffffff;
+        }
+
+        .conttext {
+            display: flex;
+            padding: 20px 25px;
+            border-bottom: 1px solid #e8e8e8;
+            color: #969696;
+        }
+
+        .contimg {
+            display: flex;
+            flex-direction: column;
+            padding: 20px 25px;
+            border-bottom: 1px solid #e8e8e8;
+            color: #969696;
+        }
+
+        .contimg img {
+            width: 100px;
+            height: 100px;
+        }
+
+        .textright {
+            margin-left: 20px;
+            width: 29vh;
+        }
+
+        .text {
+            width: 10vh;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home">
+        <div class="headline">申请信息</div>
+        <div class="homecont">
+            <div class="conttext">
+                <div class="text">学号</div>
+                <div class="textright">2023</div>
+            </div>
+            <div class="conttext">
+                <div class="text">姓名</div>
+                <div class="textright">陈西甲</div>
+            </div>
+            <div class="conttext">
+                <div class="text">学院名称</div>
+                <div class="textright" style="width: 29vh;">海洋科学与工程学院</div>
+            </div>
+            <div class="conttext">
+                <div class="text">书院名称</div>
+                <div class="textright" style="width: 29vh;">南海书院</div>
+            </div>
+            <div class="conttext">
+                <div class="text">专业名称</div>
+                <div class="textright">海洋工程专业</div>
+            </div>
+            <div class="conttext">
+                <div class="text">年级</div>
+                <div class="textright">2022</div>
+            </div>
+            <div class="conttext">
+                <div class="text">宿舍信息</div>
+                <div class="textright">203</div>
+            </div>
+            <div class="conttext">
+                <div class="text">电话</div>
+                <div class="textright">13976868544</div>
+            </div>
+            <div class="conttext">
+                <div class="text">车牌号</div>
+                <div class="textright">1027569</div>
+            </div>
+            <div class="contimg">
+                <div class="text">车辆图片（带车牌）</div><img src="detail_files/微信图片_20241203224921.jpg" alt="">
+            </div>
+            <div class="contimg">
+                <div class="text">行驶证</div><img src="detail_files/微信图片_20241203225233.jpg" alt="">
+            </div>
+            <div class="conttext">
+                <div class="text">申请时间</div>
+                <div class="textright">2024-07-27 09:52:14</div>
+            </div>
+            <div class="conttext" style="background-color: #fafafa;">
+                <div class="text">审核信息</div>
+            </div>
+            <div class="conttext">
+                <div class="text">审核状态</div>
+                <div class="textright">审核通过</div>
+            </div>
+            <div class="conttext">
+                <div class="text">审核意见</div>
+                <div class="textright"></div>
+            </div>
+            <div class="conttext">
+                <div class="text">审核时间</div>
+                <div class="textright">2024-08-22 09:52:14</div>
+            </div>
+            <div class="conttext">
+                <div class="text">审核人工号</div>
+                <div class="textright">996308</div>
+            </div>
+            <div class="conttext">
+                <div class="text">审核人姓名</div>
+                <div class="textright">海元</div>
+            </div>
+            <div style="padding: 5% 3% 7% 3%;background-color: #fafafa;">
+                <div style="text-align: center;background-color: #ffffff;padding: 12px;border-radius:5px;margin-top: 10px;"
+                    id="returnButton">返回</div>
+
+            </div>
+        </div>
+    </div>
+
+    <script>
+        returnButton.addEventListener('click', () => {
+            window.history.back(); // 返回上一页
+        });
+    </script>
+
+</body>
+
+</html>
