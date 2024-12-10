@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .home {
+            width: 100%;
+            height: 100vh;
+            background-color: #fafafa;
+
+        }
+
+        .tab {
+            display: flex;
+            justify-content: center;
+            border-bottom: 1px solid #c2c1c1;
+        }
+
+        .tabname {
+            width: 50%;
+        }
+
+        .tabname {
+            text-align: center;
+            padding: 15px 0;
+        }
+
+        .active {
+            color: #53c9c8;
+            border-bottom: 3px solid #53c9c8;
+        }
+
+        .activetabbar {
+            color: #53c9c8;
+        }
+
+        .homecontent {
+            padding: 10px;
+        }
+
+        .usercontent {
+            display: flex;
+            align-items: center;
+            padding: 8px 0;
+            border-bottom: 1px solid #ececec;
+        }
+
+        .imgicon {
+            width: 20px;
+        }
+
+        .userinfo {
+            padding: 20px 25px;
+            position: relative;
+            margin-top: 10px;
+            background-color: white;
+            font-size: 13px;
+        }
+
+        .contenttext {
+            margin-left: 10px;
+            display: flex;
+        }
+
+        .lefticon {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 35px;
+            border-radius: 4px;
+        }
+
+        .righttext {
+            color: #9eb96f;
+            position: absolute;
+            right: 5px;
+            top: 5px
+        }
+
+        .tabbar {
+            display: flex;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            padding-top: 5px;
+            border-top: 3px solid #f3f3f3;
+        }
+
+        .tabbarcontent {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 50%;
+        }
+
+        .tabbaricon {
+            width: 30px;
+        }
+
+        .morencolor {
+            color: #53c9c8;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="home">
+        <div class="tab">
+            <div class="tabname active" onclick="toggleTab(this,1)">车辆申请</div>
+            <div class="tabname" onclick="toggleTab(this,2)">我的车辆</div>
+        </div>
+        <div class="tabbar">
+            <div class="tabbarcontent activetabbar"
+                onclick="selectTab(this, './index_files/tabbar.png', './index_files/tabbarend.png')">
+                <img class="tabbaricon" src="./index_files/tabbar.png" alt="">
+                <div style="color: rgb(83, 201, 200);">我的车辆</div>
+            </div>
+            <div class="tabbarcontent"
+                onclick="selectTab(this,'./index_files/tabbar.png','./index_files/tabbarend.png')">
+                <img class="tabbaricon" src="./index_files/tabbarend.png" alt="">
+                <div>违章举报</div>
+            </div>
+        </div>
+        <div class="homecontent">
+            <input value="44" type="hidden" id="id">
+            <input type="hidden" id="type" value="1">
+            <div style="color: red;">申请已截止，可点击不通过的申请信息进行修改并重新提交</div>
+            <div class="userinfo" onclick="skip(id)">
+                <img class="lefticon" src="./index_files/pc1.png" alt="">
+                <div class="righttext">审核通过</div>
+                <div class="usercontent">
+                    <img class="imgicon" src="./index_files/姓名.png" alt="">
+                    <div class="contenttext">姓名：陈苡芝</div>
+                </div>
+                <div class="usercontent">
+                    <img class="imgicon" src="./index_files/学号.png" alt="">
+                    <div class="contenttext">学号：20233008269</div>
+                </div>
+                <div class="usercontent">
+                    <img class="imgicon" src="./index_files/联系方式电话.png" alt="">
+                    <div class="contenttext">联系方式：13976868544</div>
+                </div>
+                <div class="usercontent">
+                    <img class="imgicon" src="./index_files/学号 (1).png" alt="">
+                    <div class="contenttext">
+                        <div style="white-space: nowrap;">学院名称：</div>
+                        <div>海洋科学与工程学院</div>
+                    </div>
+                </div>
+                <div class="usercontent">
+                    <img class="imgicon" src="./index_files/书院_正常.png" alt="">
+                    <div class="contenttext">书院名称：南海书院</div>
+                </div>
+                <div class="usercontent">
+                    <img class="imgicon" src="./index_files/车牌.png" alt="">
+                    <div class="contenttext">车牌号：1027569</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 切换选中状态的函数
+        function selectTab(element, selectedSrc, defaultSrc) {
+            const tabs = document.querySelectorAll('.tabbarcontent');
+            // 移除所有 tabbarcontent 的 activetabbar 类
+            tabs.forEach(tab => {
+                tab.classList.remove('activetabbar');
+                const icon = tab.querySelector('.tabbaricon');
+                if (icon) {
+                    icon.src = defaultSrc; // 将选中的图片替换为默认图片
+                }
+                const text = tab.querySelector('div');
+                if (text) {
+                    text.style.color = ''; // 恢复默认字体颜色
+                }
+            });
+
+            // 给当前点击的 tabbarcontent 添加 activetabbar 类
+            element.classList.add('activetabbar');
+            // 更新当前点击元素的图片源
+            const icon = element.querySelector('.tabbaricon');
+            if (icon) {
+                icon.src = selectedSrc; // 更新为选中状态的图片
+            }
+            // 更新选中状态下的文字颜色
+            const text = element.querySelector('div');
+            if (text) {
+                text.style.color = '#53c9c8'; // 设置选中时文字颜色为蓝色
+            }
+        }
+        // 初始化第一个 tab 为选中状态
+        document.addEventListener('DOMContentLoaded', () => {
+            const firstTab = document.querySelector('.tabbarcontent');
+            if (firstTab) {
+                firstTab.classList.add('activetabbar');
+                const firstIcon = firstTab.querySelector('.tabbaricon');
+                if (firstIcon) {
+                    firstIcon.src = './index_files/tabbar.png'; // 设置第一个选中的图标
+                }
+                // 设置第一个 tab 的文字颜色为蓝色
+                const text = firstTab.querySelector('div');
+                if (text) {
+                    text.style.color = '#53c9c8';
+                }
+            }
+        });
+
+        // 切换选中标签的函数
+        function toggleTab(element, type) {
+            // 获取所有 tabname 元素
+            const tabs = document.querySelectorAll('.tabname');
+            // 移除所有标签的 active 类
+            tabs.forEach(tab => tab.classList.remove('active'));
+            // 给当前点击的 tabname 添加 active 类
+            element.classList.add('active');
+            if (type == 1) {
+                document.getElementById("type").value = 1;
+            } else {
+                document.getElementById("type").value = 2;
+            }
+        }
+        // 初始化时，默认选择第一个 tab
+        document.querySelectorAll('.tabname')[0].classList.add('active');
+
+        function skip() {
+            id = document.getElementById("id").value;
+            type = document.getElementById("type").value;
+            if (type == 1) {
+                window.location.href = "./detail.html?id=" + id;
+            } else {
+                window.location.href = "./my?id=" + id;
+            }
+        }
+
+    </script>
+</body>
+
+</html>
